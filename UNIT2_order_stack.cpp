@@ -1,27 +1,27 @@
 #include <iostream>
+using namespace std;
 #include <stack>
-#include <string>
+
+using namespace std;
 
 int main() {
-    // Create a stack to store order numbers
-    std::stack<std::string> cancelledOrders;
+    stack<int> orders; 
+    int number;
 
-    // Simulate storing 5 cancelled orders (oldest to newest)
-    cancelledOrders.push("ORD1001");
-    cancelledOrders.push("ORD1002");
-    cancelledOrders.push("ORD1003");
-    cancelledOrders.push("ORD1004");
-    cancelledOrders.push("ORD1005"); // Most recently cancelled
+    cout << "Enter 5 cancelled order numbers:\n";
+    
+    // 1. Loop to get 5 numbers from the user
+    for (int i = 0; i < 5; i++) {
+        cin >> number;
+        orders.push(number); 
+    }
 
-    std::cout << "--- Cancelled Orders (Most Recent First) ---\n";
+    cout << "\nCancelled orders (Most Recent First):\n";
 
-    // Process and display orders until the stack is empty
-    while (!cancelledOrders.empty()) {
-        // Display the top element (most recent)
-        std::cout << "Order Number: " << cancelledOrders.top() << "\n";
-        
-        // Remove the top element to access the next one
-        cancelledOrders.pop();
+    // 2. Loop to print and remove numbers until the stack is empty
+    while (!orders.empty()) {
+        cout << orders.top() << endl; 
+        orders.pop();
     }
 
     return 0;
